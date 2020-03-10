@@ -1,5 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+This project was a tutorial for making a blog with react.js.
 ## Available Scripts
 
 In the project directory, you can run:
