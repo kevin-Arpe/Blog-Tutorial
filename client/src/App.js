@@ -37,7 +37,6 @@ function Topic() {
       break;
     }
   }
-
   return (
     <div>
       <h2>{selected_topic.title}</h2>
