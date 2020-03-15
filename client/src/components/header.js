@@ -4,9 +4,7 @@ class Header extends React.Component {
     render() {
         return (
             <div className="header">
-                <h1>
-                나의 코딩 이야기
-                </h1>
+                <img src="1.jpg" />
             </div>
         );
     }

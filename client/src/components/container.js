@@ -2,30 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, NavLink, Route, Switch, useParams } from 'react-router-dom';
 import Coding from './topics/coding';
 
-class List extends React.Component {
-    state = {
-        item: [
-            '', 'coding', 'englsh', 'exam', 'help', 'find'
-        ],
-        list: {
-            coding: [
-                {id: 'html', title: 'HTML'},
-                {id: 'css', title: 'CSS'},
-                {id: 'js', title: 'Javascript'}
-            ],
-            english: [
-                {id: 'sentence', title: "Today's sentence"},
-                {id: 'voca', title: "VOCA"}
-            ]
-        }
-    };
-
+class Main extends React.Component {
     render() {
         return (
-            <div className="navList">
+            <div className="content">
                 <Switch>
                     <Route exact path="/" />
-                    <Route path="/coding"><Coding list={this.state.list.coding}/></Route>
+                    <Route path="/coding"><Coding /></Route>
                     <Route path="/english" />
                     <Route path="/exam" />
                     <Route path="/help" />
@@ -41,7 +24,7 @@ class List extends React.Component {
 const Container = () => {
     return (
         <div className="container">
-            <List />
+            <Main />
         </div>
     );
 }
