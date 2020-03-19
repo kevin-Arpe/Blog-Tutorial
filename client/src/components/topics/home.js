@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, NavLink, Route, Switch, useParams } from 'react-router-dom';
+import { NavLink, Route, Switch, useParams } from 'react-router-dom';
 
-function Content(props) {
+const Content = (props) => {
     let params = useParams();
     let topic_id = params.topic_id;
     let selected_topic = {}
@@ -9,13 +9,12 @@ function Content(props) {
     for (let i=0; i<props.home.length; i++) {
         if (props.home[i].id === topic_id) {
             selected_topic = props.home[i];
-            console.log(selected_topic);
             break;
         }
     }
 
     return (
-        <div>
+        <div className="contents">
             <h3>{selected_topic.title}</h3>
             <p>{selected_topic.desc}</p>
         </div>
@@ -27,7 +26,7 @@ class Home extends React.Component {
         home: []
     }
 
-    render() {
+    componentDidMount() {
         fetch('home.json')
             .then(function(result) {
                 return result.json();
@@ -37,25 +36,25 @@ class Home extends React.Component {
                     home: json
                 });
             }.bind(this))
+    }
 
+    render() {
         let lis = [];
 
         for (let i=0; i<this.state.home.length; i++) {
-        lis.push(<li key={this.state.home[i].id}><NavLink exact to={"/home/"+this.state.home[i].id}>{this.state.home[i].title}</NavLink></li>)
+            lis.push(<li key={this.state.home[i].id}><NavLink exact to={"/home/"+this.state.home[i].id}>{this.state.home[i].title}</NavLink></li>)
         }
 
         return (
-            <div>
+            <div className="content">
                 <ul className="content_list">
                     {lis}
                 </ul>
-                <div className="contents">
-                    <Switch>
-                        <Route path="/home/:topic_id">
-                            <Content home={this.state.home} />
-                        </Route>
-                    </Switch>
-                </div>
+                <Switch>
+                    <Route path="/home/:topic_id">
+                        <Content home={this.state.home} />
+                    </Route>
+                </Switch>
             </div>
         );
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, NavLink, Route, Switch, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const navs = [
     {id: 'home', name: "HOME"},
@@ -21,7 +21,7 @@ class Nav extends React.Component {
   
       return (
         <nav className="navigator">
-          {navLis}
+          { navLis }
         </nav>
       );
     }

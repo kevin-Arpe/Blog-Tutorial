@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, NavLink, Route, Switch, useParams } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Nav from './components/nav'
 import Header from './components/header'

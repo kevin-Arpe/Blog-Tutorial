@@ -6,9 +6,9 @@ function Content(props) {
     let topic_id = params.topic_id;
     let selected_topic = {}
 
-    for (let i=0; i<props.codings.length; i++) {
-        if (props.codings[i].id === topic_id) {
-            selected_topic = props.codings[i];
+    for (let i=0; i<props.exams.length; i++) {
+        if (props.exams[i].id === topic_id) {
+            selected_topic = props.exams[i];
             break;
         }
     }
@@ -21,19 +21,19 @@ function Content(props) {
     );
 }
 
-class Coding extends React.Component {
+class Exam extends React.Component {
     state = {
-        codings: []
+        exams: []
     }
 
     componentDidMount() {
-        fetch('coding.json')
+        fetch('exam.json')
          .then(function(result) {
              return result.json();
          })
          .then(function(json) {
              this.setState({
-                 codings: json
+                 exams: json
              });
          }.bind(this))
     }
@@ -41,8 +41,8 @@ class Coding extends React.Component {
     render() {
         let lis = [];
 
-        for (let i=0; i<this.state.codings.length; i++) {
-        lis.push(<li key={this.state.codings[i].id}><NavLink exact to={"/coding/"+this.state.codings[i].id}>{this.state.codings[i].title}</NavLink></li>)
+        for (let i=0; i<this.state.exams.length; i++) {
+        lis.push(<li key={this.state.exams[i].id}><NavLink exact to={"/exam/"+this.state.exams[i].id}>{this.state.exams[i].title}</NavLink></li>)
         }
 
         return (
@@ -51,8 +51,8 @@ class Coding extends React.Component {
                     {lis}
                 </ul>
                 <Switch>
-                    <Route path="/coding/:topic_id">
-                        <Content codings={this.state.codings} />
+                    <Route path="/exam/:topic_id">
+                        <Content exams={this.state.exams} />
                     </Route>
                 </Switch>
             </div>
@@ -60,4 +60,4 @@ class Coding extends React.Component {
     }
 }
 
-export default Coding;
+export default Exam;

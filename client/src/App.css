@@ -17,6 +17,8 @@
 
 .navItem {
   float: left;
+  list-style: none;
+  margin: 10px;
 }
 
 .navItem a {
@@ -34,19 +36,6 @@
   color: #f00;
 }
 
-li {
-  list-style: none;
-  margin: 10px;
-}
-
-li a {
-  text-decoration: none;
-}
-
-.active {
-  color: #f00;
-}
-
 .header {
   padding: 110px;
   margin-bottom: 20px;
@@ -61,16 +50,42 @@ li a {
 
 .container {
   grid-row: 3 / span 1;
-  display: grid;
   margin: 10px 0;
 }
 
+.content {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+
 .content_list {
-  float: left;
-  margin: 0 30px 0 0;
-  width: 180px;
+  grid-column: 1 / span 1;
+  margin-left: 20px;
+  padding-top: 20px;
   height: 500px;
   border-right: 2px solid #555;
+}
+
+.content_list li {
+  margin: 10px 0;
+}
+
+.content_list li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.content_list li .active {
+  color: #f00;
+}
+
+.content_list li a:hover {
+  color: #00f;
+}
+
+.contents {
+  grid-column: 2 / span 1;
+  margin: 20px 0 0 30px;
 }
 
 .contents h3 {
