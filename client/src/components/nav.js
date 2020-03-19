@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, NavLink, Route, Switch, useParams } from 'react-router-dom';
 
 const navs = [
-    {id: '', name: "HOME"},
+    {id: 'home', name: "HOME"},
     {id: 'coding', name: "CODING"},
     {id: 'english', name: "ENGLISH"},
     {id: 'exam', name: "EXAMINATAION"},

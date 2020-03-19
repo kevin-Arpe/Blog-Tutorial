@@ -6,9 +6,9 @@ function Content(props) {
     let topic_id = params.topic_id;
     let selected_topic = {}
 
-    for (let i=0; i<props.codings.length; i++) {
-        if (props.codings[i].id === topic_id) {
-            selected_topic = props.codings[i];
+    for (let i=0; i<props.english.length; i++) {
+        if (props.english[i].id === topic_id) {
+            selected_topic = props.english[i];
             console.log(selected_topic);
             break;
         }
@@ -22,26 +22,26 @@ function Content(props) {
     );
 }
 
-class Coding extends React.Component {
+class English extends React.Component {
     state = {
-        codings: [{id: '', title: '', desc: ''}]
+        english: []
     }
-    
+
     render() {
-        fetch('coding.json')
-         .then(function(result) {
-             return result.json();
-         })
-         .then(function(json) {
-             this.setState({
-                 codings: json
-             });
-         }.bind(this))
+        fetch('english.json')
+            .then(function(result) {
+                return result.json();
+            })
+            .then(function(json) {
+                this.setState({
+                    english: json
+                })
+            }.bind(this))
 
         let lis = [];
 
-        for (let i=0; i<this.state.codings.length; i++) {
-        lis.push(<li key={this.state.codings[i].id}><NavLink exact to={"/coding/"+this.state.codings[i].id}>{this.state.codings[i].title}</NavLink></li>)
+        for (let i=0; i<this.state.english.length; i++) {
+        lis.push(<li key={this.state.english[i].id}><NavLink exact to={"/english/"+this.state.english[i].id}>{this.state.english[i].title}</NavLink></li>)
         }
 
         return (
@@ -51,8 +51,8 @@ class Coding extends React.Component {
                 </ul>
                 <div className="contents">
                     <Switch>
-                        <Route path="/coding/:topic_id">
-                            <Content codings={this.state.codings} />
+                        <Route path="/english/:topic_id">
+                            <Content english={this.state.english} />
                         </Route>
                     </Switch>
                 </div>
@@ -61,4 +61,4 @@ class Coding extends React.Component {
     }
 }
 
-export default Coding;
+export default English;

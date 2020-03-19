@@ -7,7 +7,7 @@
 .navigator {
   position: fixed;
   width: 100%;
-  grid-area: 1 / span 1;
+  grid-row: 1 / span 1;
   align-self: center;
   padding: 10px;
   background-color: #333;
@@ -48,23 +48,21 @@ li a {
 }
 
 .header {
-  padding: 100px;
+  padding: 110px;
+  margin-bottom: 20px;
   overflow: hidden;
-  background-color: #555;
-  color: #000;
+  align-self: stretch;
+  color: #fff;
+  letter-spacing: 5px;
   text-align: center;
   align-self: center;
-  grid-area: 2 / span 1;
-}
-
-.header img {
-  max-width: 100%;
-  height: auto;
+  grid-row: 2 / span 1;
 }
 
 .container {
-  grid-area: 3 / span 1;
+  grid-row: 3 / span 1;
   display: grid;
+  margin: 10px 0;
 }
 
 .content_list {
@@ -73,4 +71,8 @@ li a {
   width: 180px;
   height: 500px;
   border-right: 2px solid #555;
+}
+
+.contents h3 {
+  margin-top: 0;
 }

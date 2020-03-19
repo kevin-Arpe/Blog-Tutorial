@@ -1,15 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, NavLink, Route, Switch, useParams } from 'react-router-dom';
+import Home from './topics/home';
 import Coding from './topics/coding';
+import English from './topics/english';
 
 class Main extends React.Component {
     render() {
         return (
             <div className="content">
                 <Switch>
-                    <Route exact path="/" />
-                    <Route path="/coding"><Coding /></Route>
-                    <Route path="/english" />
+                    <Route path="/home" component={ Home } />
+                    <Route path="/coding" component={ Coding } />
+                    <Route path="/english" component={ English } />
                     <Route path="/exam" />
                     <Route path="/help" />
                     <Route path="/find" />
